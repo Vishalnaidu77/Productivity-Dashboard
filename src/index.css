@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: aeonic;
+    src: url(../Public/fonnts.com-Aeonik-Regular.ttf);
+}
+
+@font-face {
+    font-family: aeonicBold;
+    src: url(../Public/fonnts.com-Aeonik-Bold.ttf);
+}
+
+html,
+body{
+  background-color: #111;
+  color: #fff;
+}
+
+.pages{
+  width: 85vw;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+button{
+  cursor: pointer;
+}
+
+button:hover{
+  transform: scale(1.03);
+}
+
+button:active{
+  transform: scale(0.97);
+}
+
+.all-task-list::-webkit-scrollbar{
+  display: none;
+}
