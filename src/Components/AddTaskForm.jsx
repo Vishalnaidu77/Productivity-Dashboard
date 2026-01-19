@@ -3,17 +3,20 @@ import { AiOutlineClose } from "react-icons/ai";
 import { TaskContextData } from '../Context/TaskContext';
 
 const AddTaskForm = ({ setAddTask }) => {
-
-  const [ task, setTask, description, setDescription, imp, setImp, allTask, setAllTask ] = useContext(TaskContextData)
+  const [task, setTask] = useState('')
+  const [description, setDescription] = useState('')
+  const [imp, setImp] = useState(false)
+  const [status, setStatus] = useState("todo")
+  const [ allTask, setAllTask ] = useContext(TaskContextData)
   
+
   const handleForm = (e) => {
     e.preventDefault()
     setAddTask(false)
+    const id = crypto.randomUUID()
+    setAllTask([...allTask, {id, task, description, imp, status}])
+    console.log(allTask);
 
-    const updatedTasks = [...allTask, {task, description, imp}]
-
-    setAllTask(updatedTasks)
-    localStorage.setItem("all-task", JSON.stringify(updatedTasks))
     setTask('')
     setDescription('')
   }

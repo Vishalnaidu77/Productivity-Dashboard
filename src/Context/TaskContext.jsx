@@ -1,16 +1,24 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 export const TaskContextData = createContext()
 
 const TaskContext = ({ children }) => {
 
-    const [task, setTask] = useState('')
-    const [description, setDescription] = useState('')
-    const [imp, setImp] = useState(false)
-    const [allTask, setAllTask] = useState([])
+    const [allTask, setAllTask] = useState(JSON.parse(localStorage.getItem("all-task")) || [])
+
+    useEffect(() => {
+      localStorage.setItem("all-task", JSON.stringify(allTask))
+    }, [allTask])
+
+    console.log(allTask);
+    
+    
+    const deleteTask = () => {
+
+    }
 
   return (
-    <TaskContextData.Provider value={[ task, setTask, description, setDescription, imp, setImp, allTask, setAllTask ]}>
+    <TaskContextData.Provider value={[ allTask, setAllTask ]}>
       {children}
     </TaskContextData.Provider>
   )
