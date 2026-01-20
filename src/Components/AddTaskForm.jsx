@@ -6,7 +6,7 @@ const AddTaskForm = ({ setAddTask }) => {
   const [task, setTask] = useState('')
   const [description, setDescription] = useState('')
   const [imp, setImp] = useState(false)
-  const [status, setStatus] = useState("todo")
+  const [status, setStatus] = useState("done")
   const [ allTask, setAllTask ] = useContext(TaskContextData)
   
 

@@ -4,11 +4,13 @@ import TaskHeading from './TaskHeading';
 import { IoAdd } from 'react-icons/io5';
 import Tasks from './Tasks';
 
-const TaskStatusContainer = ({ children, heading, color }) => {
+const TaskStatusContainer = ({ children, heading, color, status }) => {
 
     const [allTask] = useContext(TaskContextData);
-    console.log(allTask);
-    
+
+    const filteredTask = allTask?.filter((todo) => {
+      return todo.status == status;
+    })
 
   return (
     <div className={`todo flex flex-col gap-4 w-1/3 bg-white/5 rounded-lg p-4`}>
@@ -18,9 +20,9 @@ const TaskStatusContainer = ({ children, heading, color }) => {
         </div>
 
         <div className="all-task-list flex flex-col gap-2 overflow-auto">
-        {allTask?.length > 0 && allTask?.map((todo, idx) => {
-            return <Tasks 
-                key={idx} 
+        {filteredTask?.length > 0 && filteredTask?.map((todo, idx) => {
+               return <Tasks 
+                key={todo.id} 
                 task={todo.task}
                 description={todo.description}
                 imp={todo.imp}

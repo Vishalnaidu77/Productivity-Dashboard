@@ -12,7 +12,6 @@
   const Todo = () => {
     const [addTask, setAddTask] = useState(false)
     const [, ,] = useContext(TaskContextData);
-    
 
     const toggleTaskForm = () => {
       addTask == false && setAddTask(true)
@@ -29,7 +28,7 @@
         <section className='w-full flex h-[90vh] p-4 gap-4'>
 
           {/* To do Containter */}
-          <TaskStatusContainer heading="To do" color="red">
+          <TaskStatusContainer heading="To do" status="todo" color="red">
             <button 
             className='flex items-center text-sm gap-1 py-1 px-3 bg-red-400 rounded-md'
             onClick={toggleTaskForm}
@@ -40,10 +39,10 @@
           </TaskStatusContainer>
 
           {/* In-progress Containter */}
-          <TaskStatusContainer heading="In Progress" color="yellow"/>
+          <TaskStatusContainer heading="In Progress" status="progress" color="yellow"/>
 
           {/* Done Containter */}
-          <TaskStatusContainer heading="Done" color="green"/>
+          <TaskStatusContainer heading="Done" status="done" color="green"/>
 
         </section>
       </div>

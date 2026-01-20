@@ -10,15 +10,12 @@ const TaskContext = ({ children }) => {
       localStorage.setItem("all-task", JSON.stringify(allTask))
     }, [allTask])
 
-    console.log(allTask);
-    
-    
-    const deleteTask = () => {
-
+    const deleteTask = (id) => {
+      console.log(id)
     }
 
   return (
-    <TaskContextData.Provider value={[ allTask, setAllTask ]}>
+    <TaskContextData.Provider value={[ allTask, setAllTask, deleteTask ]}>
       {children}
     </TaskContextData.Provider>
   )

@@ -4,6 +4,9 @@ import { AiOutlineClose } from 'react-icons/ai'
 
 const Tasks = ({ task, description, imp }) => {
 
+  const [ allTask, , deleteTask ] = useContext(TaskContextData)
+  
+
   return (
     <div className="task-list flex items-center justify-between bg-[#262B32] p-4 rounded-lg">
         <div className="detail w-2/3">
@@ -12,6 +15,9 @@ const Tasks = ({ task, description, imp }) => {
         </div>
         <button 
         className='text-red-500'
+        onClick={() => {
+          console.log(allTask.map((task) => task.id))
+        }}
         ><AiOutlineClose /></button>
     </div>
   )
